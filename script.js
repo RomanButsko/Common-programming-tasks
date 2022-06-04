@@ -141,3 +141,11 @@ function createBtnToPrint() {
       return celsius = (5 *(newN - 32))/9
     }
   }
+
+  //11. Write a JavaScript program to get the website URL (loading page).
+
+  //in this case there is more options to manage it
+  function gettingUrl() { 
+    return new URL(document.URL);
+  }
+
