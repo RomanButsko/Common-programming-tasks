@@ -40,9 +40,9 @@ function createBtnToPrint() {
   //3. Write a JavaScript program to find the area of a triangle where lengths of the three of its sides are 5, 6, 7.
   
   function findAreaTriangle(a,b,c) { 
-     let perimeter = (a + b + c) / 2;
+    let perimeter = (a + b + c) / 2;
     
-     return Math.sqrt(perimeter * (perimeter - a) * (perimeter - b) * (perimeter - c))
+    return Math.sqrt(perimeter * (perimeter - a) * (perimeter - b) * (perimeter - c))
   }
   
   // console.log(findAreaTriangle(5,6,7))
@@ -60,8 +60,8 @@ function createBtnToPrint() {
     
   //5. Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar. 
     function showFullDate(month, year) {
-     return new Date(year,month, 0).getDate();
-     }
+      return new Date(year,month, 0).getDate();
+    }
     function  showDateInYear(year) {
       let amountDate = 0;
       for(let i = 1; i <= 12; i++) {
@@ -145,7 +145,33 @@ function createBtnToPrint() {
   //11. Write a JavaScript program to get the website URL (loading page).
 
   //in this case there is more options to manage it
+  
   function gettingUrl() { 
     return new URL(document.URL);
   }
 
+  //12. Write a JavaScript exercise to get the extension of a filename.
+
+  function getFileName(file) {
+    return file.split('.').slice(-1) //in this case we can use POP() 
+  } 
+
+  //13. Write a JavaScript exercise to create a variable using a user-defined name. 
+
+  //first way
+  function differenceBtwNums(num) {
+    return (num < 13) ? 13 - num : (num > 13) ? num - 13 : num
+  }
+  //second way
+  function differenceBtwNums(num) {
+    const certainNum = 13;
+    let resultNum = 0;
+    if(num < certainNum) {
+      resultNum = certainNum - num
+      }else if(num > certainNum) {
+        resultNum = num - certainNum
+      }else {
+          return num
+      }
+      return resultNum
+    }
