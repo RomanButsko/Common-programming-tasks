@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
-    "lint-fix": "eslint ./src --fix"
+    "lint-fix": "eslint ./src --fix --color"
   },
   "repository": {
     "type": "git",
@@ -35,9 +35,9 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*": [
       "npm run lint-fix",
-      "git add ."
+      "git add"
     ]
   }
 }
