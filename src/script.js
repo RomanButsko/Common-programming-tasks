@@ -75,7 +75,7 @@ function showDateInYear(year) {
   alert('Year`s in the Gregorian calendar.');
   return amountDate;
 }
-
+showDateInYear(2000);
 
 // 6. Write a JavaScript program to find 1st January is being a Sunday between 2014 and 2050.
 
@@ -147,7 +147,7 @@ function temparature(n) {
   } if (newExrp.includes('F')) {
     const newN = parseInt(newExrp.join(''), 10);
     const celsius = (5 * (newN - 32)) / 9;
-    return celsius;
+    return celsius
   }
   return n;
 }
