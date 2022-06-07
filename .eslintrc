@@ -15,6 +15,6 @@
         "no-alert":"off",
         "no-plusplus":"off",
         "no-console":"off",
-        "max-len":["error", 200, {"ignoreURL": true}]
+        "max-len":["error", 200]
     }
 }
