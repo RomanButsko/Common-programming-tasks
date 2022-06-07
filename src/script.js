@@ -147,7 +147,7 @@ function temparature(n) {
   } if (newExrp.includes('F')) {
     const newN = parseInt(newExrp.join(''), 10);
     const celsius = (5 * (newN - 32)) / 9;
-    return celsius
+    return celsius;
   }
   return n;
 }
