@@ -220,3 +220,109 @@ function checkIntegerPosOrNeg(a, b) {
   return console.log('There is a mistake');
 }
 checkIntegerPosOrNeg(10, -1);
+
+// 18.Write a JavaScript program to create a new string adding "Py" in front of a given string. If the given string begins with "Py" then return the original string
+
+function createNewString(str) {
+  if (str.startsWith('Java')) return str;
+  return `Java${str}`;
+}
+createNewString('Script');
+
+// 19. Write a JavaScript program to remove a character at the specified position of a given string and return the new string.
+
+function removeCharacter(str, position) {
+  const removePosOne = str.substring(0, position - 1);
+  const removePosTwo = str.substring(position, str.length);
+  return removePosOne + removePosTwo;
+}
+
+removeCharacter('JavaScript', 5);
+
+// 20. Write a JavaScript program to create a new string from a given string changing the position of first and last characters. The string length must be greater than or equal to 1
+
+function changePosition(str) {
+  if (str.length > 1) {
+    const body = str.slice(1, str.length - 1);
+    return (str[str.length - 1] + body + str[0]);
+  }
+  return str;
+}
+changePosition('hello');
+// 21.  Write a JavaScript program to create a new string from a given string with the first character of the given string added at the front and back.
+
+function getNewString(str) {
+  const firstLetter = str.slice(0, 1);
+  return firstLetter + str + firstLetter;
+}
+getNewString('check');
+
+// 22. Write a JavaScript program to check whether a given positive number is a multiple of 3 or a multiple of 7.
+
+function checkNum(n) {
+  if (n % 3 === 0 || n % 7 === 0) {
+    return 'This is correct';
+  }
+  return n;
+}
+
+checkNum(7);
+
+// 23. Write a JavaScript program to create a new string from a given string taking the last 3 characters and added at both the front and back. The string length must be 3 or more.
+
+function createStr(str) {
+  if (str.length > 3) {
+    const lastThreeLetter = str.slice(-3);
+    return lastThreeLetter + str + lastThreeLetter;
+  }
+  return str;
+}
+createStr('hello');
+
+// 24. Write a JavaScript program to check whether a string starts with 'Java' and false otherwise.
+
+function checkStartString(str) {
+  if (str.startsWith('Java')) return true;
+  return false;
+}
+checkStartString('JavaScript');
+// 25. Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them are in the said range.
+
+function checkIntegerInRange(a, b) {
+  if ((a >= 50 && a <= 99) && (b >= 50 && b <= 99)) {
+    return true;
+  }
+  return { a, b };
+}
+checkIntegerInRange(50, 99);
+
+// 26. Write a JavaScript program to check whether three given integer values are in the range 50..99 (inclusive). Return true if one or more of them are in the said range
+
+function checkIntegerInRangeTwo(a, b, c) {
+  if ((a >= 50 && a <= 99) || (b >= 50 && b <= 99) || (c >= 50 && c <= 99)) {
+    return true;
+  }
+  return [a, b, c];
+}
+
+checkIntegerInRangeTwo(10, 20, 90);
+
+// 27. Write a JavaScript program to find the largest of three given integers.
+
+function findLargestNum(a, b, c) {
+  return Math.max(a, b, c);
+}
+
+findLargestNum(10, 13, 40);
+
+// 28. Write a JavaScript program to find a value which is nearest to 100 from two different given integer values
+
+function numNextToNum(a, b) {
+  const newA = Math.abs(a - 100);
+  const newB = Math.abs(b - 100);
+  if (newA < newB) return a;
+  if (newB < newA) return b;
+  return 100;
+}
+
+numNextToNum(40, 50);
