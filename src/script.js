@@ -193,6 +193,30 @@ differgenceBtwNumsTwo(20);
 // 14. Write a JavaScript program to compute the absolute difference between a specified number and 19. Returns triple their absolute difference if the specified number is greater than 19.
 
 function differenceBtwTwoNum(n) {
-  return (n < 19) ? 19 - n : n - 19;
+  return (n < 19) ? 19 - n : (n - 19) * 3;
 }
 differenceBtwTwoNum(10);
+
+// 15. Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50.
+
+function checkTwoNum(a, b) {
+  if (a === 50 || b === 50 || (a + b) === 50) alert(true);
+  return { a, b };
+}
+checkTwoNum(40, 10);
+
+// 16. Check whether a given integer is within 20 of 100 or 400
+
+function checkInteger(n) {
+  if (Math.abs(100 - n) <= 20 || Math.abs(400 - n) <= 20) return n;
+  return console.log('There is a mistake');
+}
+checkInteger(56);
+
+// 17. Write a JavaScript program to check from two given integers, whether one is positive and another one is negative.
+
+function checkIntegerPosOrNeg(a, b) {
+  if (a > 0 && b < 0) return 'Numbers are different';
+  return console.log('There is a mistake');
+}
+checkIntegerPosOrNeg(10, -1);
