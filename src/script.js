@@ -326,3 +326,88 @@ function numNextToNum(a, b) {
 }
 
 numNextToNum(40, 50);
+
+// 29. Check whether two numbers are in range 40..60 or in the range 70..100 inclusive
+
+function checkTwoInInterval(a, b) {
+  if (((a > 40 && a < 60) || (a > 70 && a <= 100))
+      && ((b > 70 && b <= 100) || (b > 40 && b < 60))) return true;
+  return { a, b };
+}
+
+checkTwoInInterval(40, 80);
+
+// 30. Write a JavaScript program to find the larger number from the two given positive integers, the two numbers are in the range 40..60 inclusive.
+
+function findLargerNum(a, b) {
+  if ((a > 40 && a < 60) && (b > 40 && b < 60)) {
+    if (a < b) return b;
+    return a;
+  }
+  return { a, b };
+}
+
+findLargerNum(41, 42);
+
+// 31. Write a program to check whether a specified character exists within the 2nd to 4th position in a given string.
+
+// This solution is made for user use
+function checkPosition(str, symbol) {
+  if (str.length > 4) {
+    const newStr = str.slice(1, 4);
+    if (newStr.includes(symbol)) return true;
+  }
+  return str;
+}
+
+checkPosition('Hello', 4);
+
+// 32. Write a JavaScript program to check whether the last digit of the three given positive integers is same.
+
+function checkThreeNums(a, b, c) {
+  if (a > 10 && b > 10 && c > 10) {
+    const lastNum = [a, b, c].map((item) => item.toString().slice(-1));
+    for (let i = 0; i < lastNum.length; i++) {
+      if (i === lastNum.length - 1) {
+        break;
+      }
+      if (lastNum[i] !== lastNum[i + 1]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+checkThreeNums(10, 20, 30);
+// or
+
+function checkThreeNumsTwo(x, y, z) {
+  if ((x > 0) && y > 0 && z > 0) {
+    return (x % 10 === y % 10 && y % 10 === z % 10 && x % 10 === z % 10);
+  }
+  return false;
+}
+
+checkThreeNumsTwo(10, 20, 30);
+
+// 33. Write a JavaScript program to create new string with first 3 characters are in lower case from a given string. If the string length is less than 3 convert all the characters in upper case.
+
+function newString(str) {
+  let newStr = '';
+  if (str.length > 3) {
+    for (let j = 0; j < str.length; j++) {
+      if (j <= 2) {
+        newStr += str[j].toLowerCase();
+      } else {
+        newStr += str[j];
+      }
+    }
+  }
+  if (str.length <= 3) {
+    newStr = str.toUpperCase();
+  }
+  return newStr;
+}
+
+newString('verafication');
