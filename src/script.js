@@ -411,3 +411,73 @@ function newString(str) {
 }
 
 newString('verafication');
+
+// 34. Write a JavaScript program to compute the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+
+function computeSum(a, b) {
+  const sum = a + b;
+  if (sum >= 50 && sum <= 80) return 65;
+  return 80;
+}
+computeSum(20, 45);
+
+// 35.Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function checkTwoIntegers(a, b) {
+  const maxSum = a + b;
+  const minSum = Math.abc(a - b);
+  if (a === 8 || b === 8 || maxSum === 8 || minSum === 8) return true;
+  return false;
+}
+
+checkTwoIntegers(4, 8);
+
+// 36. Write a JavaScript program to check three given numbers, if the three numbers are same return 30 otherwise return 20 and if two numbers are same return 40.
+
+function checkSameNums(a, b, c) {
+  if (a === b && b === c) return 30;
+  if (a === b || b === c) return 40;
+  return 20;
+}
+
+checkSameNums(20, 30, 40);
+
+// 37. Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+function threeNumscheck(a, b, c) {
+  if (a % 10 === b % 10 || a % 10 === c % 10 || b % 10 === c % 10) return true;
+  return false;
+}
+threeNumscheck(30, 20, 10);
+
+// 38. Write a JavaScript program to check two given non-negative integers that whether one of the number (not both) is multiple of 7 or 11.
+
+function integerMultiple(a, b) {
+  if (!((a % 7 === 0 || a % 11 === 0) && (b % 7 === 0 || b % 11 === 0))) {
+    return (a % 7 === 0 || a % 11 === 0 || b % 7 === 0 || b % 11 === 0);
+  }
+  return false;
+}
+
+integerMultiple(14, 21);
+
+// 39. Write a JavaScript program to reverse a given string.
+
+function reverseStr(str) {
+  return str.split('').reverse().join('');
+}
+
+reverseStr('Text');
+
+// 40. Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.
+
+function replaceString(str) {
+  str.toLowerCase();
+  const chars = [];
+  for (let i = 0; i < str.length; i++) {
+    chars.push(str.charCodeAt(i) + 1);
+  }
+  return String.fromCharCode(...chars);
+}
+
+replaceString('charCode');
