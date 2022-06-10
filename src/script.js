@@ -481,3 +481,28 @@ function replaceString(str) {
 }
 
 replaceString('charCode');
+
+// 41. Write a JavaScript program to capitalize the first letter of each word of a given string
+
+function capitalazeFirstLetter(str) {
+  return str.split(' ').map((item) => item[0].toUpperCase() + item.slice(1)).join(' ');
+}
+
+capitalazeFirstLetter('hello user');
+
+// 42. Write a JavaScript program to convert a given number to hours and minutes.
+
+function getHoursAndMinuts(n) {
+  const date = new Date(0, 0, 0, n, n);
+  return `${date.getHours()}hours:${date.getMinutes()}minutes`;
+}
+
+getHoursAndMinuts(14);
+
+// 43. Write a JavaScript program to convert the letters of a given string in alphabetical order.
+
+function convertLetters(str) {
+  return str.split('').sort().join('');
+}
+
+convertLetters('convert');
