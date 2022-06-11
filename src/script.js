@@ -506,3 +506,33 @@ function convertLetters(str) {
 }
 
 convertLetters('convert');
+
+// 44. Write a JavaScript program to check whether the characters a and b are separated by exactly 3 places anywhere (at least once) in a given string
+
+function spaceBtwletters(str, a, b, space) {
+  const index = str.indexOf(a);
+  const indexTwo = str.indexOf(b);
+  const result = indexTwo - index;
+  if (result > space || result < -space) return true;
+  return str;
+}
+
+spaceBtwletters('programming', 'p', 'a', 3);
+
+// 45. Write a JavaScript program to count the number of vowels in a given string.
+
+function countVowels(str) {
+  const checkStr = str.split('');
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let count = 0;
+  for (let i = 0; i < checkStr.length; i++) {
+    for (let j = 0; j < vowels.length; j++) {
+      if (checkStr[i] === vowels[j]) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+countVowels('admin');
