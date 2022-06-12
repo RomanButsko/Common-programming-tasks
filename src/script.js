@@ -536,3 +536,76 @@ function countVowels(str) {
 }
 
 countVowels('admin');
+
+// 46.  Write a JavaScript program to check whether a given string contains equal number of p's and t's
+
+function checkStrcontain(str) {
+  const newStr = str.split('');
+  let p = 0;
+  let t = 0;
+  for (let i = 0; i < newStr.length; i++) {
+    if (newStr[i] === 'p') ++p;
+    if (newStr[i] === 't') ++t;
+  }
+  if (p === t) return true;
+  return false;
+}
+
+checkStrcontain('temporary');
+
+// 47. Write a JavaScript program to divide two positive numbers and return a string with properly formatted commas
+
+function divideNums(a, b) {
+  return Math.round(a / b).toString().split('');
+}
+
+divideNums(80, 6);
+
+// 48. Write a JavaScript program to create a new string of specified copies (positive number) of a given string.
+
+function createCopiesStr(str, copies) {
+  return copies <= 0 ? false : str.repeat(copies);
+}
+createCopiesStr('abc', 5);
+
+// 49. Write a JavaScript program to create a new string of 4 copies of the last 3 characters of a given original string. The length of the given string must be 3 and above.
+
+function createNewStrCopies(str) {
+  return str.length > 3 ? str.slice(-3).repeat(4) : false;
+}
+
+createNewStrCopies('checkFn');
+
+// 50. Write a JavaScript program to extract the first half of a string of even length
+
+function firstHalfOfStr(str) {
+  if (str.length % 2 === 0) return str.slice(0, str.length / 2);
+  return false;
+}
+
+firstHalfOfStr('checkFn');
+
+// 51. Write a JavaScript program to create a new string without the first and last character of a given string.
+
+function firstAndLastCharacter(str) {
+  return str.slice(1, str.length - 1);
+}
+
+firstAndLastCharacter('check');
+
+// 52.  Write a JavaScript program to concatenate two strings except their first character.
+
+function concatenateTwoString(a, b) {
+  return `${a.slice(1)}${b.slice(1)}`;
+}
+
+concatenateTwoString('PHP', 'JS');
+
+// 53. Write a JavaScript program to move last three character to the start of a given string. The string length must be greater or equal to three
+
+function moveLastThreeCharacter(str) {
+  if (str.length > 3) return `${str.slice(-3)}${str.slice(0, str.length - 3)}`;
+  return str;
+}
+
+moveLastThreeCharacter('check');
