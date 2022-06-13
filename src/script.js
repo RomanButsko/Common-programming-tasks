@@ -609,3 +609,66 @@ function moveLastThreeCharacter(str) {
 }
 
 moveLastThreeCharacter('check');
+
+// 54.  Write a JavaScript program to create a string using the middle three characters of a given string of odd length. The string length must be greater or equal to three.
+
+function createStringMiddle(str) {
+  const arr = str.split('');
+  if (!(arr.length % 2 === 0)) {
+    const middle = Math.round(arr.length / 2 - 2);
+    return arr.splice(middle, 3).join('');
+  }
+  return str;
+}
+
+createStringMiddle('check');
+
+// 55. Write a JavaScript program to concatenate two strings and return the result. If the length of the strings are not same then remove the characters from the longer string.
+
+function concatenateTwoStr(first, second) {
+  if (first.length > second.length) {
+    return first.slice(0, second.length) + second;
+  }
+  if (second.length > first.length) {
+    return second.slice(0, first.length) + first;
+  }
+  return true;
+}
+
+concatenateTwoStr('checked', 'check');
+
+// 56. Write a JavaScript program to test whether a string end with "Script". The string length must be greater or equal to 6
+
+function includeStr(str, script) {
+  if (str.length >= 6) {
+    const scriptLength = script.length;
+    const index = str.indexOf(script);
+    if (index + scriptLength === str.length) {
+      return true;
+    }
+  }
+  return false;
+}
+
+includeStr('check', 'ck');
+
+// 57. . Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank.
+
+function displayCityName(city) {
+  if (city.slice(0, 3) === 'New' || city.slice(0, 3) === 'Los') return city;
+  return false;
+}
+
+displayCityName('Los Angeles');
+
+// 58. Write a JavaScript program to create a new string from a given string, removing the first and last characters of the string if the first or last character are 'P'.
+// Return the original string if the condition is not satisfied.
+
+function checkStrIncludeP(str) {
+  const firstElem = str.slice(0, 1);
+  const lastElem = str.slice(-1);
+  if (firstElem === 'P' && lastElem === 'P') return str.slice(1, str.length - 1);
+  return true;
+}
+
+checkStrIncludeP('PythonP');
