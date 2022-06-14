@@ -672,3 +672,79 @@ function checkStrIncludeP(str) {
 }
 
 checkStrIncludeP('PythonP');
+
+// 59. Write a JavaScript program to create a new string using the first and last n characters from a given sting. The string length must be greater or equal to n.
+
+function createStrFirstLast(str, n) {
+  return str.slice(0, n) + str.slice(-n);
+}
+
+createStrFirstLast('JavaScript');
+
+// 60.Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.
+
+function sumThree(nums) {
+  return nums.reduce((previous, current) => previous + current);
+}
+
+sumThree([1, 4, 5]);
+
+// 61.Write a JavaScript program to rotate the elements left of a given array of integers of length 3.
+
+function rotateElements(nums) {
+  if (nums.length === 3) return [nums[1], nums[2], nums[0]];
+  return 'More then 3 nums';
+}
+
+rotateElements([1, 3, 5]);
+
+// 62. Write a JavaScript program to check whether 1 appears in first or last position of a given array of integers. The array length must be greater or equal to 1.
+
+function check1Appears(arr) {
+  if (arr.length > 1 && (arr[0] === 1 || arr[arr.length] === 1)) return true;
+  return false;
+}
+check1Appears([12, 3, 53, 321, 1]);
+
+// 63. Write a JavaScript program to check whether the first and last elements are equal of a given array of integers length 3.
+
+function checkNumsArray(arr) {
+  return arr[0] === arr[arr.length - 1];
+}
+
+checkNumsArray([1, 24, 5, 2, 1]);
+
+// 64. Write a JavaScript program to reverse the elements of a given array of integers length 3.
+
+function reverseElements(arr) {
+  return arr.reverse();
+}
+
+reverseElements([1, 2, 4, 3, 2]);
+
+// 65. Write a JavaScript program to find the larger value between the first or last and set all the other elements with that value. Display the new array.
+
+function findLargeValue(arr) {
+  const max = Math.max.apply(null, arr);
+  return arr.map(() => max);
+}
+
+findLargeValue([12, 4, 5, 123]);
+
+// 66. Write a JavaScript program to create a new array taking the middle elements of the two arrays of integer and each length 3.
+
+function middleElemInArr(arrOne, arrTwo) {
+  return (arrOne.length === 3 && arrTwo.length === 3) ? [arrOne[1], arrTwo[1]] : false;
+}
+
+middleElemInArr([1, 2, 4], [1, 5, 6]);
+
+// 67.  Write a JavaScript program to test whether an array of integers of length 2 contains 1 or a 3.
+
+function testArrayLength(arr) {
+  const res = arr.filter((item) => (item === 1 || item === 2 || item === 3));
+  if (res.length >= 1) return true;
+  return false;
+}
+
+testArrayLength([1, 2, 5]);
