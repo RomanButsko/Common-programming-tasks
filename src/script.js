@@ -748,3 +748,66 @@ function testArrayLength(arr) {
 }
 
 testArrayLength([1, 2, 5]);
+
+// 68. Write a JavaScript program to test whether a given array of integers contains 30 and 40 twice. The array length should be 0, 1, or 2.
+
+function integerContainsTwice(num) {
+  let count = 0;
+  num.map((item) => (((item === 30 && item === 40) || (item === 40 && item === 40) || (item === 30 && item === 30)) ? count++ : 'not'));
+  if (count < 2) return 'not enough values';
+  return count;
+}
+
+integerContainsTwice([12, 4, 5, 40, 30]);
+
+// 69. Write a JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1.
+
+function swapFirstAndLastElem(num) {
+  if (num.length > 1) {
+    const firstElem = num[0];
+    num[0] = num[num.length - 1];
+    num[num.length - 1] = firstElem;
+  }
+  return num;
+}
+
+swapFirstAndLastElem([1, 3, 5, 7]);
+
+// 70.  Write a JavaScript program to add two digits of a given positive integer.
+
+function addTwoDigits(num) {
+  const newNum = num.toString().split('');
+  for (const i of newNum) newNum[newNum.indexOf(i)] = parseInt(i, 10);
+  return newNum.reduce((privious, current) => privious + current, 0);
+}
+
+addTwoDigits(25);
+
+// 71. Write a JavaScript to add two positive integers without carry.
+
+function addTwoIntegers(a, b) {
+  const sumA = [];
+  const sumB = [];
+  const newA = a.toString().split('');
+  const newB = b.toString().split('');
+  for (let i of newA) {
+    if (parseInt(i) === 9) {
+      sumA.push(-1);
+    } else {
+      sumA.push(parseInt(i));
+    }
+  }
+  for (let i of newB) {
+    if (parseInt(i) === 9) {
+      sumB.push(-1);
+    } else {
+      sumB.push(parseInt(i));
+    }
+  }
+  const maxLength = Math.max(sumA.length, sumB.length);
+  const result = [];
+  for (let i = 0; i < maxLength; i++) {
+    result.push(sumA[i] + sumB[i]);
+  }
+  return Number(result.join(''));
+}
