@@ -843,7 +843,19 @@ findLongestStrTwo(['aaa', 'aaaa', 'aaaaa', 'aaaa']);
 function replaceCharacter(str) {
   const newStr = str.split('');
   const result = newStr.map((item) => item.charCodeAt());
-  return result.map((item) => ((item === 122) ? String.fromCharCode(97) : String.fromCharCode(item + 1)));
+  return result.map((item) => ((item === 122 || item === 90) ? String.fromCharCode(97) : String.fromCharCode(item + 1)));
 }
 
 replaceCharacter('abcdz');
+
+// other way
+
+function replaceCharacterTwo(str) {
+  const newStr = str.split('');
+  for (let i = 0; i < str.length; i++) {
+    newStr[i] = String.fromCharCode(str.charCodeAt(i) + 1);
+  }
+  return newStr.join('').replace(/{/, 'a');
+}
+
+replaceCharacterTwo('abcdz');
