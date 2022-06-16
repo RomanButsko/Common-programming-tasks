@@ -790,24 +790,60 @@ function addTwoIntegers(a, b) {
   const sumB = [];
   const newA = a.toString().split('');
   const newB = b.toString().split('');
-  for (let i of newA) {
-    if (parseInt(i) === 9) {
+  for (const i of newA) {
+    if (parseInt(i, 10) === 9) {
       sumA.push(-1);
     } else {
-      sumA.push(parseInt(i));
+      sumA.push(parseInt(i, 10));
     }
   }
-  for (let i of newB) {
-    if (parseInt(i) === 9) {
+  for (const i of newB) {
+    if (parseInt(i, 10) === 9) {
       sumB.push(-1);
     } else {
-      sumB.push(parseInt(i));
+      sumB.push(parseInt(i, 10));
     }
   }
-  const maxLength = Math.max(sumA.length, sumB.length);
+  const maxLength = Math.min(sumA.length, sumB.length);
   const result = [];
   for (let i = 0; i < maxLength; i++) {
-    result.push(sumA[i] + sumB[i]);
+    result.push(sumA[sumA.length - 1 - i] + sumB[sumB.length - 1 - i]);
   }
   return Number(result.join(''));
 }
+
+addTwoIntegers(150, 190);
+
+// 72. Write a JavaScript to find the longest string from a given array of strings
+
+function findLongestStr(arr) {
+  let result = 0;
+  for (let j = 0; j < arr.length; j++) {
+    for (let i = 0; i < arr.length - 1; i++) {
+      result = Math.max(arr[i].length);
+    }
+  }
+  return result;
+}
+
+findLongestStr(['aaa', 'aaaa', 'aaaaa', 'aaaa']);
+
+// use map
+
+function findLongestStrTwo(arr) {
+  const result = [];
+  for (const key of arr) result.push(key.length);
+  return Math.max(...result);
+}
+
+findLongestStrTwo(['aaa', 'aaaa', 'aaaaa', 'aaaa']);
+
+// 73. Write a JavaScript to replace each character of a given string by the next one in the English alphabet
+
+function replaceCharacter(str) {
+  const newStr = str.split('');
+  const result = newStr.map((item) => item.charCodeAt());
+  return result.map((item) => ((item === 122) ? String.fromCharCode(97) : String.fromCharCode(item + 1)));
+}
+
+replaceCharacter('abcdz');
