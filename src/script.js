@@ -1,4 +1,5 @@
 // Tasks
+
 // 1. Getting button for printing
 function createBtnToPrint() {
   const body = document.querySelector('body');
@@ -859,3 +860,79 @@ function replaceCharacterTwo(str) {
 }
 
 replaceCharacterTwo('abcdz');
+
+// 74. Write a JavaScript code to divide a given array of positive integers into two parts.
+// First element goes to first part, second element goes to second part, and third element goes to first part and so on. Now compute the sum of two parts and store into an array of size two.
+
+function divideArray(arr) {
+  const rightArr = [];
+  const leftArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      rightArr.push(arr[i]);
+    } else {
+      leftArr.push(arr[i]);
+    }
+  }
+  return ` RIGHT - ${rightArr}, LEFT - ${leftArr}`;
+}
+
+divideArray([1, 2, 3, 4, 5, 6]);
+
+// 75. Write a JavaScript program to check whether two arrays of integers of same length are similar or not.
+// The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.
+
+function similarArr(arrOne, arrTwo) {
+  let result = 0;
+  const maxLength = Math.max(arrOne.length, arrTwo.length);
+  for (let i = 0; i < arrOne.length; i++) {
+    for (let k = 0; k < arrTwo.length; k++) {
+      if (arrOne[i] === arrTwo[k]) result++;
+    }
+  }
+  if (result === maxLength || result === maxLength - 1) return 'arr is correct';
+  return 'arr is incorrect';
+}
+
+similarArr([1, 2, 4], [1, 4, 6]);
+
+// 76.  Write a JavaScript program to check whether two given integers are similar or not, if a given divisor divides both integers and it does not divide either.
+
+function similarNums(a, b, divisor) {
+  return ((a % divisor === 0 && b % divisor === 0) || (a % divisor !== 0 && b % divisor !== 0));
+}
+
+similarNums(20, 25, 5);
+
+// 77. Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression
+
+function replaceExpr(x, y, z) {
+  let expr = '';
+  if ((x * y) === z) expr = '*';
+  if ((x / y).toFixed(2) === (z.toFixed(2))) expr = '/';
+  if ((x + y) === z) expr = '+';
+  if ((x - y) === z) expr = '-';
+  if (expr === '') return 'incorrect data';
+  return `${x} ${expr} ${y} = ${z}`;
+}
+
+replaceExpr(10, 30, 300);
+
+// or
+function replaceExprTwo(x, y, z) {
+  return x + y === z || x * y === z || x / y === z || x - y === z;
+}
+
+replaceExprTwo(10, 30, 300);
+
+// 78. Write a JavaScript program to find the kth greatest element of a given array of integers
+
+function findBiggestElem(arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > result) result = arr[i];
+  }
+  return result;
+}
+
+findBiggestElem([1, 4, 777, 44, 40]);
