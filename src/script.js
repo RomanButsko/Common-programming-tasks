@@ -936,3 +936,18 @@ function findBiggestElem(arr) {
 }
 
 findBiggestElem([1, 4, 777, 44, 40]);
+
+// 79. Write a JavaScript program to find the maximum possible sum of some of its k consecutive numbers (numbers that follow each other in order.) of a given array of positive integers.
+
+// !!! very bad decision !!!
+// found sum of ordinal elements
+
+function maxConsecutiveNum(arr) {
+  const result = new Set();
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] + 1 === arr[i + 1]) result.add(arr[i]).add(arr[i] + 1);
+  }
+  return [...result].reduce((pr, cu) => pr + cu, 0);
+}
+
+maxConsecutiveNum([1, 20, 21, 22, 34]);
