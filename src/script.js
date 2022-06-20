@@ -951,3 +951,61 @@ function maxConsecutiveNum(arr) {
 }
 
 maxConsecutiveNum([1, 20, 21, 22, 34]);
+
+// 80. Write a JavaScript program to find the maximal difference among all possible pairs of a given array of integers
+
+function findMaxDifferenceNum(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < arr.length; k++) {
+      result.push(Math.abs(arr[i] - arr[k]));
+    }
+  }
+  const max = Math.max(...result);
+  return max;
+}
+findMaxDifferenceNum([1, 2, 3, 8, 9]);
+
+// or
+
+function findMaxDifferenceNumTwo(arr) {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+
+  return Math.abs(max - min);
+}
+
+findMaxDifferenceNumTwo([1, 2, 3, 8, 9]);
+
+// 81. Write a JavaScript program to find the number which appears most in a given array of integers
+
+function moreAppearsNum(arr) {
+  const elems = [];
+  arr.forEach((item) => {
+    elems.push(arr.filter((itemTwo) => itemTwo === item));
+  });
+  const result = elems.map((item) => item.length);
+  return Math.max(...result);
+}
+
+moreAppearsNum([1, 2, 3, 3, 3, 2, 2]);
+
+// or
+
+function moreAppearsNumTwo(arr) {
+  const elems = {};
+  arr.forEach((item) => {
+    elems[item] = (elems[item] || 0) + 1;
+  });
+  return elems;
+}
+
+moreAppearsNumTwo([1, 2, 3, 3, 3, 2, 2]);
+
+// 82. Write a JavaScript program to replace all the numbers with a specified number of a given array of integers.
+
+function replaceNum(arr, a, num) {
+  return arr.map((item) => { if (item === a) item = num; return item; });
+}
+
+replaceNum([1, 2, 4, 6, 3, 6], 6, 10);
