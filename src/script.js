@@ -1009,3 +1009,40 @@ function replaceNum(arr, a, num) {
 }
 
 replaceNum([1, 2, 4, 6, 3, 6], 6, 10);
+
+// 83. Write a JavaScript program to compute the sum of absolute differences of consecutive numbers of a given array of integers.
+
+function sumNums(num) {
+  const newarr = [];
+  for (let i = 0; i < num.length - 1; i++) {
+    newarr.push(Math.abs(num[i + 1] - num[i]));
+  }
+  return newarr.reduce((pr, cr) => pr + cr);
+}
+
+sumNums([1, 2, 3, 2, -5]);
+
+// 84.  Write a JavaScript program to find the shortest possible string which can create a string to make it a palindrome by adding characters to the end of it.
+
+function findPalindrome(str) {
+  const newStr = str + str.split('').reverse().join('').slice(1);
+  return newStr;
+}
+
+findPalindrome('JavaSctipt');
+
+// 85. Write a JavaScript program to switch case of the minimum possible number of letters to make a given string written in the upper case or in the lower case
+
+function swithLowerAndUpper(str) {
+  let low = 0;
+  let upper = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (/[A-Z]/.test(str[i])) {
+      ++upper;
+    } else ++low;
+  }
+  if (low > upper) return str.toLowerCase();
+  return str.toUpperCase();
+}
+
+swithLowerAndUpper('JavaScript');
