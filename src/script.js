@@ -1046,3 +1046,57 @@ function swithLowerAndUpper(str) {
 }
 
 swithLowerAndUpper('JavaScript');
+
+// 86. Write a JavaScript program to check whether it is possible to rearrange characters of a given string in such way that it will become equal to another given string.
+
+function rearrangeCharacters(strOne, strTwo) {
+  const first = strOne.split('');
+  const second = strTwo.split('');
+  let result = true;
+
+  first.sort();
+  second.sort();
+
+  for (let i = 0; i < Math.max(first.length, second.length); i++) {
+    if (first[i] !== second[i]) result = false;
+  }
+  return result;
+}
+
+rearrangeCharacters('abc', 'cab');
+
+// the best solution
+
+function rearrangeCharactersTwo(str1, str2) {
+  return str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+
+rearrangeCharactersTwo('abc', 'cab');
+
+// 87. Write a JavaScript program to check whether there is at least one element which occurs in two given sorted arrays of integers.
+
+function checkTowArr(arrOne, arrTwo) {
+  for (let i = 0; i < arrOne.length; i++) {
+    for (let k = 0; k < arrTwo.length; k++) {
+      if (arrOne[i] === arrTwo[k]) return true;
+    }
+  }
+  return false;
+}
+
+checkTowArr([1, 4, 3], [5, 6, 4]);
+// or
+
+// 88. Write a JavaScript program to check whether a given string contains only Latin letters and no two uppercase and no two lowercase letters are in adjacent positions.
+
+function checkLatinLetters(str) {
+  const result = (/^[a-z].*$/i).test(str);
+  const result1 = (/^.*[A-Z][A-Z].*$/).test(str);
+  const result2 = (/^.*[a-z][a-z].*$/).test(str);
+  if (result && !result1 && !result2) {
+    return true;
+  }
+  return false;
+}
+
+checkLatinLetters('ExaMplE');
