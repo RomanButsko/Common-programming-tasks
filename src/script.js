@@ -1100,3 +1100,54 @@ function checkLatinLetters(str) {
 }
 
 checkLatinLetters('ExaMplE');
+
+// 89. Write a JavaScript program to find the number of inversions of a given array of integers
+
+function inversionsArray(arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < arr.length - 1 - i; k++) {
+      if (arr[k + 1] < arr[k]) {
+        const expr = arr[k + 1];
+        arr[k + 1] = arr[k];
+        arr[k] = expr;
+        ++result;
+      }
+    }
+  }
+  return result;
+}
+
+inversionsArray([1, 4, 56, 4, 3, 2]);
+
+// 90. Write a JavaScript program to find the maximal number from a given positive integer by deleting exactly one digit of the given number.
+
+function findExactNumber(num) {
+  const newNum = num.toString().split('').map((item) => +item);
+  const minNum = Math.min(...newNum);
+  const minIndex = newNum.indexOf(minNum);
+  newNum.splice(minIndex, 1);
+  return +newNum.join('');
+}
+
+findExactNumber(3425);
+
+// 91.  Write a JavaScript program to find two elements of the array such that their absolute difference is not greater than a given integer but is as close to the said integer.
+
+function findTwoCloseElem(arr, num) {
+  let result = 0;
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < arr.length; k++) {
+      const findDifference = [Math.abs(arr[i] - arr[k])];
+      if (findDifference === num) return `${arr[i]} и ${arr[k]}`;
+      if (findDifference < num && findDifference > result) {
+        result = findDifference;
+        newArr = [arr[i], arr[k]];
+      }
+    }
+  }
+  return newArr;
+}
+
+findTwoCloseElem([12, 10, 33, 44], 40);
