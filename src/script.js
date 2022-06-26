@@ -1151,3 +1151,62 @@ function findTwoCloseElem(arr, num) {
 }
 
 findTwoCloseElem([12, 10, 33, 44], 40);
+
+// 92. Write a JavaScript program to find the number of sorted pairs formed by its elements of a given array of integers such that one element in the pair is divisible by the other one
+
+function divideElemOfArr(arr) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < arr.length; k++) {
+      if (arr[i] % arr[k] === 0 && arr[i] !== arr[k]) newArr.push(([arr[k], arr[i]]));
+    }
+  }
+  return newArr;
+}
+
+divideElemOfArr([2, 4, 16]);
+
+// 93. Write a JavaScript program to create the dot products of two given 3D vectors.
+
+function dotProducts3Dvectors(vec1, vec2, length) {
+  let result = 0;
+  for (let i = 0; i < length; i++) {
+    result += vec1[i] * vec2[i];
+  }
+  return result;
+}
+
+dotProducts3Dvectors([5, 6], [5, 6], 2);
+
+// 94. Write a JavaScript program to sort an array of all prime numbers between 1 and a given integer
+
+function exactlySortArr(n) {
+  const newArr = [n];
+  while (n--) {
+    if (n % 2 === 1) newArr.push(n);
+  }
+  return newArr.reverse();
+}
+
+exactlySortArr([20]);
+
+// 95. Write a JavaScript program to find the number of even values in sequence before the first occurrence of a given number
+
+function findEvenValue(arr, num) {
+  const findNum = arr.indexOf(num);
+  const newArr = arr.slice(0, findNum);
+  return newArr.filter((item) => item % 2 === 0);
+}
+
+findEvenValue([12, 42, 23, 32, 43, 35], 43);
+
+// 96. Write a JavaScript program to check a number from three given numbers where two numbers are equal, find the third one
+
+function findExtraThirdNum(a, b, c) {
+  if ((a !== b) && (a !== c) && (b !== c)) return 'Three numbers are unequal.';
+  if (a !== b && a !== c) return a;
+  if (a !== b && b !== c) return b;
+  return c;
+}
+
+findExtraThirdNum(1, 2, 2);
