@@ -1210,3 +1210,19 @@ function findExtraThirdNum(a, b, c) {
 }
 
 findExtraThirdNum(1, 2, 2);
+
+// 97. Write a JavaScript program to find the number of trailing zeros in the decimal representation of the factorial of a given number.
+
+function findZerosFactorial(a) {
+  // eslint-disable-next-line no-shadow
+  const factorial = (a) => (a === 1 ? 1 : a * factorial(a - 1));
+  let result = 0;
+  let newFact = factorial(a);
+  while (newFact % 5 === 0) {
+    result++;
+    newFact /= 5;
+  }
+  return result;
+}
+
+console.log(findZerosFactorial(10));
