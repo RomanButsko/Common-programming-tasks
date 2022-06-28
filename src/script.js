@@ -1226,3 +1226,35 @@ function findZerosFactorial(a) {
 }
 
 console.log(findZerosFactorial(10));
+
+// 98. Write a JavaScript program to calculate the sum of n + n/2 + n/4 + n/8 + .... where n is a positive integer and all divisions are integer.
+
+function calculateNum(n) {
+  return n === 1 ? 1 : n + calculateNum(Math.abs(n / 2));
+}
+
+calculateNum(16);
+
+// 99. Write a JavaScript program to check whether a given string represents a correct sentence or not.
+// A string is considered correct sentence if it starts with the capital letter and ends with a full stop (.).
+
+function startAndStopStr(str) {
+  if ((str.slice(0, 1) === str.slice(0, 1).toUpperCase()) && (str.slice(-1) === '.')) return true;
+  return false;
+}
+
+startAndStopStr('Hello.');
+
+// 100.  Write a JavaScript program to check whether a matrix is a diagonal matrix or not.
+// In linear algebra, a diagonal matrix is a matrix in which the entries outside the main diagonal are all zero (the diagonal from the upper left to the lower right).
+
+function matrixArr(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let k = 0; k < arr.length; k++) {
+      if (arr[i] !== arr[k] && arr[i][k] !== 0) return false;
+    }
+  }
+  return true;
+}
+
+matrixArr([[0, 2, 0], [0, 3, 0], [0, 6, 0]]);
